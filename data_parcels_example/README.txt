@@ -1,0 +1,1 @@
+example folder structure with the parcels data. Run parcels with input from fisheries/coastal population/rivers only, and put in separate folders. Some example parcels output netcdf files can be found in 'fisheriesOnly/01_K10...'
