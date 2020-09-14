@@ -69,9 +69,9 @@ lats = np.linspace(30.1875,45.9375,253)
 
 dataDir = 'Data/Temp/34_delete180Days/K10'
 
-paramFile = '01_optimize_1003/Results_180Days_K10.pickle'
+paramFile = './result_files/Results_180Days_K10.pickle'
 
-outFile = '/Users/kaandorp/Mediterranean_inverse_modelling/01_histograms/hist_180Days_K10.pickle'
+outFile = './result_files/hist_180Days_K10.pickle'
 
 
 Kval = 10
@@ -113,26 +113,7 @@ if os.environ['USER'] == 'kaandorp': # desktop
     import matplotlib.colors as colors
     import cmocean
 
-if os.environ['USER'] == 'mikaelk': #cartesius cluster
 
-    homeDir = '/scratch-shared/mikaelk'
-    
-    all_folders = []
-    
-    if use_pop:
-        particleFolders_pop = os.path.join(homeDir , dataDir, 'popOnly/')
-        folders_pop = np.sort(glob.glob(os.path.join(particleFolders_pop,'*')))[0:n_folders_per_source]
-        all_folders.append(folders_pop)
-    if use_rivers:
-        particleFolders_rivers = os.path.join(homeDir , dataDir, 'riversOnly/')
-        folders_rivers = np.sort(glob.glob(os.path.join(particleFolders_rivers,'*')))[0:n_folders_per_source]   
-        all_folders.append(folders_rivers)
-    if use_fisheries:
-        particleFolders_fisheries = os.path.join(homeDir , dataDir, 'fisheriesOnly/')
-        folders_fisheries = np.sort(glob.glob(os.path.join(particleFolders_fisheries,'*')))[0:n_folders_per_source]   
-        all_folders.append(folders_fisheries)    
-    
-    outFile = os.path.join(homeDir,outFile)
     
  
 #%%
@@ -422,6 +403,7 @@ else:
     weight_added_total = weight_added_pop.sum() + weight_added_riv.sum() + weight_added_fis.sum()
     weight_lost_total =   hist_beaching.sum() + hist_sinking.sum() 
     weight_compartments_total = weight_lost_total + mass_floating[-1]
+
 #%% mass overview
     
 print(outFile)
